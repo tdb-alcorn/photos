@@ -1,0 +1,6 @@
+awsfab_settings*.py
+*.xml
+*.xml.py
+parse-xml.py
+server.py
+*.pyc

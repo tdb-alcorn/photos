@@ -1,5 +1,5 @@
 var xmlns = "http://s3.amazonaws.com/doc/2006-03-01/";
-var keyXpath = "//" + xmlns + "Contents/" + xmlns + "Key";
+var imgTagName = "Key";
 var bucketUrl = "https://s3-us-west-2.amazonaws.com/alcorn-photos";
 var excludeFiles = ["index.html", "error.html", "main.js", "main.css"];
 
@@ -8,7 +8,7 @@ fetch(bucketUrl)
     .then(response => response.text())
     .then(xmlString => $.parseXML(xmlString))
     .then(xmlDoc => $(xmlDoc))
-    .then($xml => $xml[0].getElementsByTagNameNS(xmlns, "Key"))
+    .then($xml => $xml[0].getElementsByTagNameNS(xmlns, imgTagName))
     .then(keys => {
         var imgFilenames = [];
         for (var i=0, len=keys.length; i<len; i++) {
